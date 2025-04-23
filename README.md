@@ -23,7 +23,7 @@ To run or develop this project, make sure you have the following tools and techn
    
    At this moment, there are no additional dependencies. If any are added in the future, they will be listed here.
 
-#Project Structure
+# Project Structure
 
 The structure of the project is as follows:
 
