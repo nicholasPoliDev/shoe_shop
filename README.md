@@ -7,13 +7,13 @@ This project provides an opportunity to experiment with the Go programming langu
 
 | Task | Stato |
 |------|-------|
-| Struttura base progetto | ✅ |
-| Modello Shoe | 🔜 |
-| Store CRUD in memoria | 🔜 |
-| Input utente da terminale | 🔜 |
-| Interfaccia testuale semplice | 🔜 |
+| Project structure initialized | ✅ |
+| Shoe Model | 🔜 |
+| Store CRUD in memory | 🔜 |
+| User input from CLI | 🔜 |
+| Simple CLI Interface | 🔜 |
 | README base | ✅ |
-| Merge finale in `main` e rilascio `v1.0.0` | 🔜 |
+| Final marge in `main` and `v1.0.0` release | 🔜 |
 
 # Prerequisites
 To run or develop this project, make sure you have the following tools and technologies installed:
