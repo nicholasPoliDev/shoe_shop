@@ -5,15 +5,15 @@ This project provides an opportunity to experiment with the Go programming langu
 
 ## 🗺️ Roadmap - Versione v1.0.0 (CLI)
 
-| Stato | Task |
+| Task | Stato |
 |------|-------|
-| ✅ Struttura base progetto |
-| 🔜 Modello Shoe |
-| 🔜 Store CRUD in memoria |
-| 🔜 Input utente da terminale |
-| 🔜 Interfaccia testuale semplice |
-| ✅ README base |
-| 🔜 Merge finale in `main` e rilascio `v1.0.0` |
+| Struttura base progetto | ✅ |
+| Modello Shoe | 🔜 |
+| Store CRUD in memoria | 🔜 |
+| Input utente da terminale | 🔜 |
+| Interfaccia testuale semplice | 🔜 |
+| README base | ✅ |
+| Merge finale in `main` e rilascio `v1.0.0` | 🔜 |
 
 # Prerequisites
 To run or develop this project, make sure you have the following tools and technologies installed:
