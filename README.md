@@ -3,6 +3,18 @@
 # Description
 This project provides an opportunity to experiment with the Go programming language by exploring its core features, from basic concepts to advanced techniques. The development is centered around a real-world use case: a shoe shop management system. Through this practical example, the goal is to gain a deep understanding of Go's capabilities and master its essential concepts.
 
+## 🗺️ Roadmap - Versione v1.0.0 (CLI)
+
+| Stato | Task |
+|------|-------|
+| ✅ Struttura base progetto |
+| 🔜 Modello Shoe |
+| 🔜 Store CRUD in memoria |
+| 🔜 Input utente da terminale |
+| 🔜 Interfaccia testuale semplice |
+| ✅ README base |
+| 🔜 Merge finale in `main` e rilascio `v1.0.0` |
+
 # Prerequisites
 To run or develop this project, make sure you have the following tools and technologies installed:
 - **Go (version 1.24 or higher):** this project is developed and tested with **Go 1.24.2**. It's recommended to use the same version to avoid compatibility issues. You can download it from [Go's official websiste](https://go.dev/)
