@@ -2,37 +2,37 @@ package models
 
 import "fmt"
 
+// Predefined validation errors for Shoe fields.
+var (
+	ErrInvalidPrice  = fmt.Errorf("price cannot be negative")
+	ErrInvalidStock  = fmt.Errorf("stock cannot be negative")
+	ErrEmptyBrand    = fmt.Errorf("brand cannot be empty")
+	ErrEmptyCategory = fmt.Errorf("category cannot be empty")
+)
+
 // Shoe represents a product in the inventory system.
+//
+// It includes details such as brand, description, category, price, and stock.
+// The Price is stored in cents to avoid floating point precision issues.
+// This struct is used in CRUD operations and can be serialized to/from JSON.
 type Shoe struct {
-	ID          int    `json:"id"`
-	Brand       string `json:"brand"` // e.g., Nike, Puma, Asics
-	Description string `json:"description"`
-	Category    string `json:"category"` // e.g., Running, Casual, Basketball
-	Price       int    `json:"price"`    // Price in cents to avoid float precision
-	Stock       int    `json:"stock"`    // Quantity available in stock
+	ID          int    `json:"id"`          // Unique identifier for the shoe.
+	Brand       string `json:"brand"`       // Brand name (e.g., Nike, Puma, Asics).
+	Description string `json:"description"` // Description (e.g., color, material).
+	Category    string `json:"category"`    // Shoe category (e.g., Running, Casual).
+	Price       int    `json:"price"`       // Price in cents.
+	Stock       int    `json:"stock"`       // Available quantity in stock.
 }
 
-// NewShoe is a constructor function that creates and return a new Shoe instance.
-// It ensures that a valid Shoe struct is always returned with no nil fields.
-// It also validates that the price and stock are non-negative and that the brand and
-// category are not empty.
+// NewShoe creates a new Shoe instance after validating the input data.
+//
+// It returns an error if any of the fields are invalid (e.g., negative price,
+// empty brand or category). On success, it returns a pointer to a valid Shoe.
 func NewShoe(id int, brand, description, category string, price, stock int) (*Shoe, error) {
-	// price and stock validation
-	if price < 0 {
-		return nil, fmt.Errorf("price cannot be negative")
-	}
-	if stock < 0 {
-		return nil, fmt.Errorf("stock cannot be negative")
-	}
-	//brand and category validation
-	if brand == "" {
-		return nil, fmt.Errorf("brand cannot be empty")
-	}
-	if category == "" {
-		return nil, fmt.Errorf("category cannot be empty")
+	if err := validateShoeData(brand, category, price, stock); err != nil {
+		return nil, err
 	}
 
-	// Return the new Shoe instance if all validations pass
 	return &Shoe{
 		ID:          id,
 		Brand:       brand,
@@ -41,4 +41,24 @@ func NewShoe(id int, brand, description, category string, price, stock int) (*Sh
 		Price:       price,
 		Stock:       stock,
 	}, nil
+}
+
+// validateShoeData checks that the brand and category are not empty,
+// and that price and stock are non-negative.
+//
+// It returns an error if any validation rule fails.
+func validateShoeData(brand, category string, price, stock int) error {
+	if price < 0 {
+		return ErrInvalidPrice
+	}
+	if stock < 0 {
+		return ErrInvalidStock
+	}
+	if brand == "" {
+		return ErrEmptyBrand
+	}
+	if category == "" {
+		return ErrEmptyCategory
+	}
+	return nil
 }
